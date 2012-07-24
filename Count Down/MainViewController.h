@@ -7,9 +7,22 @@
 //
 
 #import "FlipsideViewController.h"
+#import "AudioToolbox/AudioServices.h"
 
-@interface MainViewController : UIViewController <FlipsideViewControllerDelegate, UIPopoverControllerDelegate>
+@interface MainViewController : UIViewController <FlipsideViewControllerDelegate, UIPopoverControllerDelegate> {
+    BOOL isRunning;
+    NSTimeInterval duration;
+}
+
+- (IBAction)run:(id)sender;
+- (void)timerFired:(NSTimer *)timer;
+- (void)updateDuration:(NSTimeInterval)interval;
+- (void)playFinishedSound;
+- (void)playIntervalSound;
 
 @property (strong, nonatomic) UIPopoverController *flipsidePopoverController;
+@property (strong, nonatomic) IBOutlet UIDatePicker *countDownPicker;
+@property (strong, nonatomic) IBOutlet UILabel *countDownLabel;
+@property (strong, nonatomic) NSTimer *countDownTimer;
 
 @end
