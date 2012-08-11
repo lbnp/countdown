@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D19305115BF4C3900575DC4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D19305015BF4C3900575DC4 /* AudioToolbox.framework */; };
 		3DF86D8315BD8D90001A9DFC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF86D8215BD8D90001A9DFC /* UIKit.framework */; };
 		3DF86D8515BD8D90001A9DFC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF86D8415BD8D90001A9DFC /* Foundation.framework */; };
 		3DF86D8715BD8D90001A9DFC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF86D8615BD8D90001A9DFC /* CoreGraphics.framework */; };
@@ -20,21 +21,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D19305015BF4C3900575DC4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3DF86D7E15BD8D90001A9DFC /* Count Down.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Count Down.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF86D8215BD8D90001A9DFC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3DF86D8415BD8D90001A9DFC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3DF86D8615BD8D90001A9DFC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		3DF86D8A15BD8D90001A9DFC /* Count Down-Info.plist */ = {isa = PBXFileReference; path = "Count Down-Info.plist"; sourceTree = "<group>"; };
+		3DF86D8A15BD8D90001A9DFC /* Count Down-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Count Down-Info.plist"; sourceTree = "<group>"; };
 		3DF86D8C15BD8D90001A9DFC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3DF86D8E15BD8D90001A9DFC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3DF86D9015BD8D90001A9DFC /* Count Down-Prefix.pch */ = {isa = PBXFileReference; path = "Count Down-Prefix.pch"; sourceTree = "<group>"; };
-		3DF86D9115BD8D90001A9DFC /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		3DF86D9015BD8D90001A9DFC /* Count Down-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Count Down-Prefix.pch"; sourceTree = "<group>"; };
+		3DF86D9115BD8D90001A9DFC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3DF86D9215BD8D90001A9DFC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3DF86D9515BD8D90001A9DFC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		3DF86D9815BD8D90001A9DFC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		3DF86D9A15BD8D90001A9DFC /* MainViewController.h */ = {isa = PBXFileReference; path = MainViewController.h; sourceTree = "<group>"; };
+		3DF86D9A15BD8D90001A9DFC /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		3DF86D9B15BD8D90001A9DFC /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		3DF86D9D15BD8D90001A9DFC /* FlipsideViewController.h */ = {isa = PBXFileReference; path = FlipsideViewController.h; sourceTree = "<group>"; };
+		3DF86D9D15BD8D90001A9DFC /* FlipsideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlipsideViewController.h; sourceTree = "<group>"; };
 		3DF86D9E15BD8D90001A9DFC /* FlipsideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlipsideViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -43,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D19305115BF4C3900575DC4 /* AudioToolbox.framework in Frameworks */,
 				3DF86D8315BD8D90001A9DFC /* UIKit.framework in Frameworks */,
 				3DF86D8515BD8D90001A9DFC /* Foundation.framework in Frameworks */,
 				3DF86D8715BD8D90001A9DFC /* CoreGraphics.framework in Frameworks */,
@@ -72,6 +75,7 @@
 		3DF86D8115BD8D90001A9DFC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3D19305015BF4C3900575DC4 /* AudioToolbox.framework */,
 				3DF86D8215BD8D90001A9DFC /* UIKit.framework */,
 				3DF86D8415BD8D90001A9DFC /* Foundation.framework */,
 				3DF86D8615BD8D90001A9DFC /* CoreGraphics.framework */,
@@ -294,6 +298,7 @@
 				3DF86DA415BD8D90001A9DFC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

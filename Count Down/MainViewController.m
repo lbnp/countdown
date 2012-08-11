@@ -7,23 +7,25 @@
 //
 
 #import "MainViewController.h"
+#import "AppDelegate.h"
 
 @interface MainViewController ()
 
 @end
-
 @implementation MainViewController
 
 @synthesize flipsidePopoverController = _flipsidePopoverController;
 @synthesize countDownPicker;
 @synthesize countDownLabel;
 @synthesize countDownTimer;
+@synthesize notification;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
     [self.countDownLabel setHidden:YES];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enteredBackground:) name:@"didEnterBackground" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enteredForeground:) name:@"didEnterForeground" object:nil];
     isRunning = false;
     duration = 0.0;
 }
@@ -31,7 +33,11 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     // Release any retained subviews of the main view.
+    if ( [self.countDownTimer isValid] ) {
+        [self.countDownTimer invalidate];
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -129,6 +135,40 @@
 - (void)playIntervalSound
 {
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+}
+
+- (void)enteredBackground:(NSNotification *)notification
+{
+    if (isRunning) {
+        [self.countDownTimer invalidate];
+        date = [NSDate dateWithTimeIntervalSinceNow:duration];
+        NSLog([date description]);
+        self.notification = [[UILocalNotification alloc] init];
+        self.notification.fireDate = date;
+        self.notification.timeZone = [NSTimeZone defaultTimeZone];
+        self.notification.alertAction = @"timer fired";
+        self.notification.alertBody = @"timer fired!";
+        self.notification.soundName = UILocalNotificationDefaultSoundName;
+        [[UIApplication sharedApplication] scheduleLocalNotification:self.notification];
+    }
+}
+
+- (void)enteredForeground:(NSNotification *)notification
+{
+    if (isRunning) {
+        NSTimeInterval newDuration = [self.notification.fireDate timeIntervalSinceNow];
+        if (newDuration > 0.0) {
+            duration = newDuration;
+            self.countDownTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
+        } else {
+            duration = 0.0;
+            [self.countDownPicker setHidden:NO];
+            [self.countDownLabel setHidden:YES];
+            isRunning = !isRunning;
+        }
+        [self updateDuration:duration];
+        [[UIApplication sharedApplication] cancelLocalNotification:self.notification];
+    }
 }
 
 @end
